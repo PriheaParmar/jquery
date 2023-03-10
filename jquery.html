@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("#addBtn").click(function() {
+          var todoItem = $("#todoInput").val();
+          if (todoItem !== "") {
+            $("#todoList").append("<li>" + todoItem + "<button class='deleteBtn'>Delete</button></li>");
+            $("#todoInput").val("");
+          }
+        });
+        
+        $(document).on("click", ".deleteBtn", function() {
+          $(this).closest("li").remove();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <input type="text" id="todoInput" placeholder="Enter a new task">
+    <button id="addBtn">Add</button>
+    <ul id="todoList"></ul>
+  </body>
+</html>
